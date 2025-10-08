@@ -25,3 +25,20 @@ def faz_jogada(tabuleiro, linha, coluna):
     elif tabuleiro[linha][coluna] == 1:
         tabuleiro[linha][coluna] = 'X'
     return tabuleiro
+
+#Exercício 4 do Prairielearn
+def posiciona_frota(frota):
+    tabuleiro = []
+    for i in range(10):
+        linha = []
+        for j in range(10):
+            linha.append(0)
+        tabuleiro.append(linha)
+
+    for tipo in frota:
+        for unidade in frota[tipo]:
+            for i in range(10):
+                for j in range(10):
+                    if [i, j] in unidade:
+                        tabuleiro[i][j] = 1
+    return tabuleiro
