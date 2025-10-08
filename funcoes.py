@@ -56,3 +56,20 @@ def afundados(frota, tabuleiro):
             if afundado:
                 quantos_afundados += 1
     return quantos_afundados
+
+#Exercício 6 do PrairieLearn
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    navionovo = define_posicoes(linha, coluna, orientacao, tamanho)
+    for i in range(len(navionovo)):
+        if navionovo[i][0] > 9 or navionovo[i][1] > 9:
+            return False
+    for i in range(len(navionovo)):
+        for tipo in frota:
+            for j in range(len(frota[tipo])):
+                for k in range(len(frota[tipo][j])):
+                    if frota[tipo][j][k] == navionovo[i]:
+                        return False
+    return True
+
+frota = {'porta-aviões': [[[0, 0], [0, 1], [0, 2], [0, 3]]], 'navio-tanque': [[[4, 9], [5, 9], [6, 9]], [[6, 3], [7, 3], [8, 3]]], 'contratorpedeiro': [[[4, 3], [4, 4]]]}
+print(posicao_valida(frota, 2, 9, 'horizontal', 2))
