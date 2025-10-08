@@ -42,3 +42,17 @@ def posiciona_frota(frota):
                     if [i, j] in unidade:
                         tabuleiro[i][j] = 1
     return tabuleiro
+
+#Exercício 5 do PraireLearn
+def afundados(frota, tabuleiro):
+    quantos_afundados = 0
+    for tipo in frota:
+        for navio in frota[tipo]:
+            afundado = True
+            for posicao in navio:
+                if tabuleiro[posicao[0]][posicao[1]] == 1:
+                    afundado = False
+                    continue
+            if afundado:
+                quantos_afundados += 1
+    return quantos_afundados
