@@ -70,6 +70,3 @@ def posicao_valida(frota, linha, coluna, orientacao, tamanho):
                     if frota[tipo][j][k] == navionovo[i]:
                         return False
     return True
-
-frota = {'porta-aviões': [[[0, 0], [0, 1], [0, 2], [0, 3]]], 'navio-tanque': [[[4, 9], [5, 9], [6, 9]], [[6, 3], [7, 3], [8, 3]]], 'contratorpedeiro': [[[4, 3], [4, 4]]]}
-print(posicao_valida(frota, 2, 9, 'horizontal', 2))
