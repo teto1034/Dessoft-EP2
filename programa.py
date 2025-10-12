@@ -1,5 +1,6 @@
 #Exercício 7 do PrairieLearn
-from funcoes import define_posicoes, posicao_valida, preenche_frota, posiciona_frota, monta_tabuleiros, afundados, faz_jogada
+from funcoes import define_posicoes, posicao_valida, preenche_frota, posiciona_frota, monta_tabuleiros, faz_jogada, afundados
+import random
 
 frota = {
     "porta-aviões":[],
@@ -76,4 +77,18 @@ while True:
     if afundados(frota_oponente, tabuleiro_oponente) == 10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         break
+    else:
+        while True: 
+            linha_o = random.randint(0, 9)
+            coluna_o = random.randint(0, 9)
+            if tabuleiro_jogador[linha_o][coluna_o] == '-' or tabuleiro_jogador[linha_o][coluna_o] == 'X':
+                continue
+            tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linha_o, coluna_o)
+            print("Seu oponente está atacando na linha {linha_o} e coluna {coluna_o}")
+            break
+
+    if afundados(frota, tabuleiro_jogador) == 10:
+        print("Xi! O oponente derrubou toda a sua frota =(")
+        break
+    
     print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
