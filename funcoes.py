@@ -28,12 +28,7 @@ def faz_jogada(tabuleiro, linha, coluna):
 
 #Exercício 4 do Prairielearn
 def posiciona_frota(frota):
-    tabuleiro = []
-    for i in range(10):
-        linha = []
-        for j in range(10):
-            linha.append(0)
-        tabuleiro.append(linha)
+    tabuleiro = [[0] * 10 for i in range(10)]
 
     for tipo in frota:
         for unidade in frota[tipo]:
